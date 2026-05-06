@@ -7,6 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>DashBoard Page</h2>
+<h2>Dashboard</h2>
+
+<h3>Welcome ${sessionScope.user}</h3>
+
+<a href="logout">Logout</a>
+
 </body>
 </html>
