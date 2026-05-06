@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./activity.css">
+</head>
+<body>
+    <!-- Write a JavaScript program to:
+
+Store product name and price by taking an input from user through prompt // take and input through html form 
+Apply discount:
+If price > 1000 → 10% discount
+Print final price
+*/ -->
+<header>
+<h1>Activity1</h1>
+<h3>Taking Name and Price Inputs through Prompt and Calculating the Discount</h3>
+</header>
+<br><br>
+<script>
+
+    let productName = prompt("Enter product name:");
+    let price = prompt("Enter product price:");
+    let finalPrice = price;
+    if (price > 1000) {
+        finalPrice = price - (price * 0.10);
+        document.writeln("<b>Product Name: </b>" + productName+"<br>");
+        document.writeln("<b>Original Price: </b>" + price+"<br>");
+        document.writeln("<b>Final Price after discount(10%):</b> " + finalPrice+"<br>");
+    }
+    else{
+        document.writeln(" Discount is not Applicable for bill 1000 or less than 1000 <br>")
+        document.writeln("<b>Product Name: </b>" + productName+"<br>");
+        document.writeln("<b>Original Price: </b>" + price+"<br>");
+        document.writeln("<b>Final Price after discount(10%):</b> " + finalPrice+"<br>");
+    }
+
+</script>
+
+</body>
+</html>
+    

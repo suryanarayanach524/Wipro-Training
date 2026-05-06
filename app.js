@@ -1,10 +1,11 @@
+
 document.writeln("JavaScript Variables");
 
 
 
-var age = 40;
-const myName = "Niti"
-var isTrue = true ; 
+var age = 21;  // Number
+const myName = "Neha" // String
+var isTrue = true ; // boolean
 
 console.log(typeof(age));
 console.log(typeof(myName));

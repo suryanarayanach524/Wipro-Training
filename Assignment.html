@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <button onclick="showNames()">Product Names</button>
+    <button onclick="showTotal()">Total Price</button>
+    <button onclick="showFilter()">Filter > 1000</button>
+    <button onclick="showItems()">Total Items</button>
+
+    <p id="result"></p>
+
+<script>
+
+let cart =[
+
+{id:1,name:"Laptop", price:60000 ,qty:2,category:"Electronics"},
+{id:2,name:"Mouse", price:500 ,qty:5,category:"Electronics"},
+{id:3,name:"Keyboard", price:1000 ,qty:3,category:"Electronics"},
+{id:4,name:"Monitor", price:15000 ,qty:2,category:"Electronics"},
+
+];
+
+// 1
+let products=cart.map(p=>p.name)
+
+// 2
+let total=cart.reduce((sum,p)=>sum+(p.price*p.qty),0)
+
+// 3
+let product=cart.filter(p=>p.price>1000);
+
+// 4
+let calculateTotalItems=()=>{
+    return cart.reduce((total,item)=>total+item.qty,0);
+}
+
+// 5
+let totalItems=calculateTotalItems();
+
+
+function showNames(){
+    document.getElementById("result").innerText = "Names of the Products " + products;
+}
+
+function showTotal(){
+    document.getElementById("result").innerText = "Total Price " + total;
+}
+
+function showFilter(){
+    document.getElementById("result").innerText = "Filtered Products " + product.map(p=>p.name);
+}
+
+function showItems(){
+    document.getElementById("result").innerText = `Total Items: ${totalItems}`;
+}
+
+</script>
+
+</body>
+</html>
