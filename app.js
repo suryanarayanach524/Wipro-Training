@@ -1,23 +1,123 @@
+const { Formik } = formik;
 
-document.writeln("JavaScript Variables");
+const BookStore = {
+  books: [],
 
+  addBook(book) {
+    this.books.push(book);
+    renderApp();
+  }
+};
 
+function App() {
 
-var age = 21;  // Number
-const myName = "Neha" // String
-var isTrue = true ; // boolean
+  return (
+    <div className="container">
 
-console.log(typeof(age));
-console.log(typeof(myName));
-console.log(typeof(isTrue));
+      <h1>BookVerse</h1>
 
-// Conversion -- Internal conversion is preferable
+      <Formik
+        initialValues={{
+          title: "",
+          author: "",
+          price: ""
+        }}
 
-let score = "787";  //client is entering the score as string but we need to convert it to number for calculation
+        validate={(values) => {
 
-//let average1 = score /5 ; // here it not a type safety issue because of internal conversion but it is not a good practice to rely on internal conversion as it can lead to unexpected results in some cases.
+          let errors = {};
 
-let toIntScore = Number(score); 
+          if (!values.title) {
+            errors.title = "Title is required";
+          }
 
-let average = toIntScore/5;
-console.log("Average is : " + average);
+          if (!values.author) {
+            errors.author = "Author is required";
+          }
+
+          if (!values.price) {
+            errors.price = "Price is required";
+          }
+
+          return errors;
+        }}
+
+        onSubmit={(values, { resetForm }) => {
+
+          BookStore.addBook(values);
+
+          resetForm();
+        }}
+      >
+
+        {
+          ({ values, errors, handleChange, handleSubmit }) => (
+
+            <form onSubmit={handleSubmit}>
+
+              <input
+                type="text"
+                name="title"
+                placeholder="Book Title"
+                value={values.title}
+                onChange={handleChange}
+              />
+
+              <div className="error">{errors.title}</div>
+
+              <input
+                type="text"
+                name="author"
+                placeholder="Author"
+                value={values.author}
+                onChange={handleChange}
+              />
+
+              <div className="error">{errors.author}</div>
+
+              <input
+                type="number"
+                name="price"
+                placeholder="Price"
+                value={values.price}
+                onChange={handleChange}
+              />
+
+              <div className="error">{errors.price}</div>
+
+              <button type="submit">
+                Add Book
+              </button>
+
+            </form>
+          )
+        }
+
+      </Formik>
+
+      <h2>Book List</h2>
+
+      {
+        BookStore.books.map((book, index) => (
+
+          <div className="book" key={index}>
+
+            <h3>{book.title}</h3>
+
+            <p>Author: {book.author}</p>
+
+            <p>Price: ₹{book.price}</p>
+
+          </div>
+        ))
+      }
+
+    </div>
+  );
+}
+
+function renderApp() {
+  ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+}
+
+renderApp();

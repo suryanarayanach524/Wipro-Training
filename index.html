@@ -1,39 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <title>BookVerse</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+  <script src="https://unpkg.com/formik/dist/formik.umd.production.min.js"></script>
+
+  <script src="https://unpkg.com/yup@0.32.11/dist/yup.min.js"></script>
+
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 
-
 <body>
-   <h1> A java script program </h1>
-   <script src="app.js">
-    // alert("Hello", "Everyone"); //it's a built in function
-    // console.log(3+5);
-   </script>
-   
 
-   <script>
-   //  var keyword -- belongs to a global scope when you define outside the function
-     var name = "Neha";
-     var age = 40;  // Number
-    function counter1()
-    {
+<div id="root"></div>
 
-        let counter = 10;
-        
-    }
-    let counter =30;
-    name = "Neha";
-    console.log(name);
-    console.log(counter);
-
-    // var keyword allows you to redeclare a variable 
-
-    //let keyword won't allow you to redeclare a block scoped variable 
-   </script>
+<script type="text/babel" src="app.js"></script>
 
 </body>
 </html>
